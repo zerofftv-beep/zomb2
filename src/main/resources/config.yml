@@ -1,0 +1,112 @@
+# =====================================================================
+#                      DayZZombies Configuration
+#           Плагин управления зомби для серверов DayZ (Arclight 1.20.1)
+# =====================================================================
+
+# Настройки по мирам. Если нужного мира здесь нет, будут применены настройки из секции 'default'.
+# Вы можете создавать настройки для любых миров, просто добавив их название ниже.
+worlds:
+  default:
+    # Включить ли функции плагина в этом мире
+    enabled: true
+    
+    zombie_settings:
+      # Горят ли зомби на солнце
+      sun_burn: false
+      # Базовый урон зомби
+      damage: 6.0
+      # Базовая броня зомби (атрибут Armor)
+      armor_attribute: 2.0
+      # Шанс спавна зомби с элементами брони (снаряжение) [от 0.0 до 1.0]
+      armor_equip_chance: 0.25
+      
+    spawner_settings:
+      # Включить ли кастомный спавн зомби вокруг игроков
+      custom_spawning_enabled: true
+      # Могут ли зомби спавниться при дневном свете (на солнце)
+      spawn_in_sunlight: true
+      # Кулдаун попыток спавна вокруг игрока (в секундах)
+      spawn_cooldown: 10
+      # Минимальный радиус спавна от игрока
+      min_spawn_radius: 15
+      # Максимальный радиус спавна от игрока
+      max_spawn_radius: 45
+      # Максимальное количество зомби рядом с игроком в радиусе max_spawn_radius
+      max_zombies_near_player: 15
+      # Отключить спавн всех остальных мобов кроме зомби
+      disable_other_mobs: true
+      
+    hearing_settings:
+      # Включить ли реакцию зомби на шум (уши для зомби)
+      enabled: true
+      # Радиус, в котором зомби слышат определенные действия игрока
+      radius:
+        # Быстрая ходьба / бег (sprint)
+        sprint: 15.0
+        # Прыжки
+        jump: 12.0
+        # Поедание еды / питье
+        eat: 10.0
+        # Стрельба из огнестрельного оружия (TacZ)
+        tacz_shoot: 55.0
+        # Разрушение блоков
+        break_block: 15.0
+        # Установка блоков
+        place_block: 12.0
+        # Открытие сундуков, дверей, люков, ворот
+        open_chest_door: 12.0
+        # Выбрасывание предметов
+        item_drop: 8.0
+        # Получение урона игроком (крики боли)
+        take_damage: 15.0
+
+  # Пример отдельного мира (можно изменять через команды /dz set <мир> ...)
+  world_dayz:
+    enabled: true
+    zombie_settings:
+      sun_burn: false
+      damage: 8.0
+      armor_attribute: 4.0
+      armor_equip_chance: 0.40
+    spawner_settings:
+      custom_spawning_enabled: true
+      spawn_in_sunlight: true
+      spawn_cooldown: 8
+      min_spawn_radius: 12
+      max_spawn_radius: 40
+      max_zombies_near_player: 25
+      disable_other_mobs: true
+    hearing_settings:
+      enabled: true
+      radius:
+        sprint: 18.0
+        jump: 15.0
+        eat: 12.0
+        tacz_shoot: 70.0
+        break_block: 18.0
+        place_block: 15.0
+        open_chest_door: 15.0
+        item_drop: 10.0
+        take_damage: 18.0
+
+# =====================================================================
+# Настройки определения стрельбы из мода TacZ (Timeless and Classics Guns)
+# =====================================================================
+tacz_settings:
+  # Список ключевых слов в ID предмета (например, tacz:ak47, tacz:glock, или в названии материала),
+  # при правом клике с которым будет срабатывать шум выстрела.
+  weapon_keywords:
+    - "TACZ_"
+    - "GUN"
+    - "RIFLE"
+    - "PISTOL"
+    - "SHOTGUN"
+    - "SNIPER"
+    - "REVOLVER"
+    - "SMG"
+    - "CARBINE"
+    - "DMR"
+    - "WEAPON"
+  # Задержка между срабатыванием привлечения зомби от выстрела (в миллисекундах).
+  # Необходима, чтобы автоматическое оружие не вызывало лаги при поиске сущностей каждый тик.
+  shoot_sound_cooldown_ms: 500
