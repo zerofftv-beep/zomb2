@@ -113,7 +113,7 @@ public class ZombieSpawnListener implements Listener {
             EntityDamageEvent.DamageCause cause = event.getCause();
 
             // Если зомби получает урон от огня или горения
-            if (cause == EntityDamageEvent.DamageCause.FIRE || cause == EntityDamageEvent.DamageCause.FIRE_TICK || cause == EntityDamageEvent.DamageCause.BURN) {
+            if (cause == EntityDamageEvent.DamageCause.FIRE || cause == EntityDamageEvent.DamageCause.FIRE_TICK) {
                 WorldConfig worldConfig = plugin.getWorldConfig(zombie.getWorld());
                 if (!worldConfig.isEnabled() || worldConfig.isSunBurn()) {
                     return;
